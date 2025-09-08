@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Formulario de Insumos y Equipo Médico</title>
+  <link rel="stylesheet" href="Formato.css" />
+  <script src="https://cdn.sheetjs.com/xlsx-0.20.0/package/dist/xlsx.full.min.js"></script>
+</head>
+<body>
+  <!-- =================== Página 1: Selección de Categoría =================== -->
+  <div id="page1" class="page activo card">
+    <h2>Selecciona la categoría</h2>
+    <select id="categoria">
+      <option value="">Seleccione</option>
+      <option value="insumos">INSUMOS</option>
+      <option value="material">MATERIAL</option>
+      <option value="equipo">EQUIPO MÉDICO</option>
+      <option value="mobiliario">MOBILIARIO</option>
+      <option value="informatico">BIENES INFORMÁTICOS</option>
+    </select>
+    <br/><br/>
+    <button id="btnSiguiente">Siguiente</button>
+  </div>
+
+  <!-- =================== Página 2: Formulario Insumos/Material =================== -->
+  <div id="page2" class="page oculto card">
+    <h2>Formulario de Insumos / Material</h2>
+    <input type="file" id="inputExcel" accept=".xlsx, .xls" />
+    <br/><br/>
+    <button id="btnAgregarFila">Agregar fila</button>
+    <table id="tablaInsumos">
+      <thead>
+        <tr>
+          <th>No.</th>
+          <th>Clave</th>
+          <th>Descripción</th>
+          <th>Stock</th>
+          <th>Mínimo</th>
+          <th>Estado</th>
+          <th>Caducidad</th>
+          <th>Días restantes</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <br/>
+    <button id="btnEnviarInsumos">Enviar</button>
+    <button id="btnRegresar1">Regresar</button>
+  </div>
+
+  <!-- =================== Página 3: Formulario Equipo/Mobiliario/Informático =================== -->
+  <div id="page3" class="page oculto card">
+    <h2>Formulario de Equipo / Mobiliario / Bienes Informáticos</h2>
+    <input type="file" id="inputExcel" accept=".xlsx, .xls" />
+    <br/><br/>
+    <button id="btnAgregarFila">Agregar fila</button>
+    <table id="tablaInsumos">
+      <thead>
+        <tr>
+          <th>No.</th>
+          <th>Clave</th>
+          <th>Descripción</th>
+          <th>Stock</th>
+          <th>Mínimo</th>
+          <th>Estado</th>
+          <th>Caducidad</th>
+          <th>Días restantes</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <br/>
+    <button id="btnEnviarInsumos">Enviar</button>
+    <button id="btnRegresar2">Regresar</button>
+  </div>
+
+  <!-- =================== JS =================== -->
+  <script src="Logica.js"></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+/* Reset / base */
+* { box-sizing: border-box; }
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f4f9;
+  padding: 40px;
+  color: #333;
+  margin: 0;
+}
+
+/* Control de páginas */
+.page { display: none; }
+.page.activo { display: block; }
+
+/* Tarjeta */
+.card {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.06);
+  max-width: 1200px;
+  margin: 20px auto;
+}
+
+/* Títulos */
+h2 { color: #2b2b2b; margin-top: 0; }
+
+/* Inputs y Select principal */
+#categoria, #inputExcel {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #dcdcdc;
+  margin: 12px 0 18px 0;
+  font-size: 16px;
+}
+
+/* Tabla */
+table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+th, td { padding: 12px; text-align: center; border: 1px solid #e6e6e6; font-size: 14px; }
+th { background-color: #cfead4; color: #1b4332; font-weight: 700; }
+
+/* Inputs dentro de la tabla */
+table input[type="text"],
+table input[type="number"],
+table input[type="date"],
+table select {
+  width: 100%;
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+/* Semáforo por caducidad */
+tr.expired { background-color: #ffd6d6 !important; }
+tr.warning-expiry:not(.expired) { background-color: #fff7d6 !important; }
+tr.valid-expiry:not(.expired):not(.warning-expiry) { background-color: #eaffea !important; }
+
+/* Botones */
+button {
+  margin-top: 16px;
+  background-color: #2f855a; 
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+button:hover { background-color: #276a4b; }
+.buttons-row { margin-top: 12px; display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+
+/* Responsivo */
+@media (max-width: 900px) {
+  .card { padding: 18px; margin: 12px; }
+  th, td { font-size: 12px; padding: 8px; }
+}
