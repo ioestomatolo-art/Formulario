@@ -1,0 +1,40 @@
+* { box-sizing: border-box; font-family: Arial, sans-serif; }
+body { margin: 16px; background:#f5f7fa; color:#111; }
+.card { background:#fff; padding:16px; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.06); max-width:1100px; margin:auto; }
+.page.oculto { display:none; }
+.page.activo { display:block; }
+.controls { margin:12px 0; display:flex; gap:8px; flex-wrap:wrap; }
+table { width:100%; border-collapse:collapse; margin-top:12px; }
+th, td { border:1px solid #e2e8f0; padding:8px; text-align:left; vertical-align:middle; }
+select, input[type="text"], input[type="date"], input[type="number"] { width:100%; padding:6px; border:1px solid #cbd5e1; border-radius:4px; }
+button { padding:8px 12px; border-radius:6px; border:0; background:#2563eb; color:#fff; cursor:pointer; }
+button:hover{ opacity:0.95; }
+
+/* Semáforo: tonos pastel pero con mayor presencia visual.
+   Usamos fondo suave + borde izquierdo para señalar claramente el estado. */
+.expired {
+  background: rgba(244, 114, 128, 0.18);   /* pastel rojo - más visible */
+  border-left: 4px solid rgba(244, 114, 128, 0.9);
+  transition: background .18s, border-color .18s;
+}
+.warning-expiry {
+  background: rgba(250, 215, 103, 0.16);   /* pastel amarillo/ámbar */
+  border-left: 4px solid rgba(250, 215, 103, 0.95);
+  transition: background .18s, border-color .18s;
+}
+.valid-expiry {
+  background: rgba(167, 243, 208, 0.16);   /* pastel verde menta */
+  border-left: 4px solid rgba(34, 197, 94, 0.95);
+  transition: background .18s, border-color .18s;
+}
+
+/* Opcional: mejorar legibilidad del texto dentro de filas con semáforo */
+.expired td, .warning-expiry td, .valid-expiry td {
+  color: #0b1220; /* texto ligeramente más oscuro para contraste */
+}
+
+/* Pequeño ajuste responsivo para tablas en pantallas pequeñas */
+@media (max-width: 700px) {
+  th, td { font-size: 14px; padding:6px; }
+  .controls { gap:6px; }
+}

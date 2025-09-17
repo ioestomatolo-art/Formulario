@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Formulario Estomatologia</title>
+  <link rel="stylesheet" href="Formato.css" />
+</head>
+<body>
+  <!-- Página 1 -->
+  <div id="page1" class="page activo">
+    <div class="card">
+      <h2>Selecciona la categoría</h2>
+      <select id="categoria">
+        <option value="">--Seleccione--</option>
+        <option value="insumos">Insumos</option>
+        <option value="material">Material</option>
+        <option value="equipo">Equipo médico</option>
+        <option value="mobiliario">Mobiliario</option>
+        <option value="bienesInformaticos">Bienes informáticos</option>
+        <option value="instrumental">Instrumental</option>
+      </select>
+      <div class="actions">
+        <button id="btnSiguiente">Siguiente</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Página 2 -->
+  <div id="page2" class="page oculto">
+    <div class="card">
+      <h2 id="tituloCategoria">Formulario</h2>
+
+      <div class="controls">
+        <button id="btnRegresar1">Regresar</button>
+        <button id="btnAgregarFila">Agregar fila</button>
+        <button id="btnEnviarInsumos">Enviar (consola)</button>
+      </div>
+
+      <table id="tablaInsumos">
+        <thead>
+          <tr>
+            <th>No.</th>
+            <th>Clave</th>
+            <th>Descripción</th>
+            <th>Stock</th>
+            <th>Mínimo</th>
+            <th>Estado</th>
+            <th>Caducidad</th>
+            <th>Días restantes</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="Logica.js"></script>
+</body>
+</html>
