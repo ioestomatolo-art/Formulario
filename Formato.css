@@ -1,78 +1,41 @@
-/* Reset / base */
-* { box-sizing: border-box; }
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #f4f4f9;
-  padding: 40px;
-  color: #333;
-  margin: 0;
+* { box-sizing: border-box; font-family: Arial, sans-serif; }
+body { margin: 16px; background:#f5f7fa; color:#111; }
+.card { background:#fff; padding:16px; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.06); max-width:1100px; margin:auto; }
+.page.oculto { display:none; }
+.page.activo { display:block; }
+.controls { margin:12px 0; display:flex; gap:8px; flex-wrap:wrap; }
+table { width:100%; border-collapse:collapse; margin-top:12px; }
+th, td { border:1px solid #e2e8f0; padding:8px; text-align:left; vertical-align:middle; }
+select, input[type="text"], input[type="date"], input[type="number"] { width:100%; padding:6px; border:1px solid #cbd5e1; border-radius:4px; }
+button { padding:8px 12px; border-radius:6px; border:0; background:#2563eb; color:#fff; cursor:pointer; }
+button:hover{ opacity:0.95; }
+
+/* Semáforo: tonos pastel pero con mayor presencia visual.
+   Usamos fondo suave + borde izquierdo para señalar claramente el estado. */
+.expired {
+  background: rgba(244, 114, 128, 0.18);   /* pastel rojo - más visible */
+  border-left: 4px solid rgba(244, 114, 128, 0.9);
+  transition: background .18s, border-color .18s;
+}
+.warning-expiry {
+  background: rgba(250, 215, 103, 0.16);   /* pastel amarillo/ámbar */
+  border-left: 4px solid rgba(250, 215, 103, 0.95);
+  transition: background .18s, border-color .18s;
+}
+.valid-expiry {
+  background: rgba(167, 243, 208, 0.16);   /* pastel verde menta */
+  border-left: 4px solid rgba(34, 197, 94, 0.95);
+  transition: background .18s, border-color .18s;
 }
 
-/* Control de páginas */
-.page { display: none; }
-.page.activo { display: block; }
-
-/* Tarjeta */
-.card {
-  background: #fff;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.06);
-  max-width: 1200px;
-  margin: 20px auto;
+/* Opcional: mejorar legibilidad del texto dentro de filas con semáforo */
+.expired td, .warning-expiry td, .valid-expiry td {
+  color: #0b1220; /* texto ligeramente más oscuro para contraste */
 }
 
-/* Títulos */
-h2 { color: #2b2b2b; margin-top: 0; }
-
-/* Inputs y Select principal */
-#categoria, #inputExcel {
-  width: 100%;
-  padding: 12px;
-  border-radius: 8px;
-  border: 1px solid #dcdcdc;
-  margin: 12px 0 18px 0;
-  font-size: 16px;
+/* Pequeño ajuste responsivo para tablas en pantallas pequeñas */
+@media (max-width: 700px) {
+  th, td { font-size: 14px; padding:6px; }
+  .controls { gap:6px; }
 }
 
-/* Tabla */
-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-th, td { padding: 12px; text-align: center; border: 1px solid #e6e6e6; font-size: 14px; }
-th { background-color: #cfead4; color: #1b4332; font-weight: 700; }
-
-/* Inputs dentro de la tabla */
-table input[type="text"],
-table input[type="number"],
-table input[type="date"],
-table select {
-  width: 100%;
-  padding: 6px 8px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-}
-
-/* Semáforo por caducidad */
-tr.expired { background-color: #ffd6d6 !important; }
-tr.warning-expiry:not(.expired) { background-color: #fff7d6 !important; }
-tr.valid-expiry:not(.expired):not(.warning-expiry) { background-color: #eaffea !important; }
-
-/* Botones */
-button {
-  margin-top: 16px;
-  background-color: #2f855a; 
-  color: white;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 8px;
-  font-size: 15px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-button:hover { background-color: #276a4b; }
-.buttons-row { margin-top: 12px; display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
-
-/* Responsivo */
-@media (max-width: 900px) {
-  .card { padding: 18px; margin: 12px; }
-  th, td { font-size: 12px; padding: 8px; }
-}
